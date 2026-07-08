@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* ── Light palette ─────────────────────────────────── */
+  --color-paper: #faf8f3;
+  --color-paper-dim: #f1ede3;
+  --color-ink: #15140f;
+  --color-ink-soft: #4a4940;
+  --color-graphite: #87857a;
+  --color-blueprint: #2c4fc4;
+  --color-blueprint-soft: #dbe3fb;
+  --color-redline: #d2401f;
+  --color-redline-soft: #fbe2da;
+  --color-mint: #3d8361;
+  --color-mint-soft: #dcefe5;
+
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-body: "Inter", sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Smooth theme transitions — only on color properties, not layout */
+*,
+*::before,
+*::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.15s ease, fill 0.15s ease, box-shadow 0.2s ease;
+}
+
+/* Exclude animation-driven elements from color transitions */
+.react-flow__node,
+.react-flow__edge,
+[data-framer-motion],
+svg * {
+  transition: none !important;
+}
+
+/* ── Dark theme overrides ──────────────────────────────── */
+html.dark {
+  --color-paper: #111114;
+  --color-paper-dim: #1a1a1f;
+  --color-ink: #e8e5dd;
+  --color-ink-soft: #9e9b93;
+  --color-graphite: #5a5855;
+  --color-blueprint: #7090f5;
+  --color-blueprint-soft: #141a35;
+  --color-redline: #f07055;
+  --color-redline-soft: #2a1510;
+  --color-mint: #4fb87d;
+  --color-mint-soft: #0d2018;
+}
+
+/* ── Grid textures ─────────────────────────────────────── */
+.grid-paper {
+  background-image: linear-gradient(
+      var(--color-blueprint-soft) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, var(--color-blueprint-soft) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+html.dark .grid-paper {
+  background-image: linear-gradient(
+      rgba(112, 144, 245, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(112, 144, 245, 0.07) 1px, transparent 1px);
+}
+
+.grid-paper-dense {
+  background-image: linear-gradient(
+      rgba(44, 79, 196, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(44, 79, 196, 0.07) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+html.dark .grid-paper-dense {
+  background-image: linear-gradient(
+      rgba(112, 144, 245, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(112, 144, 245, 0.06) 1px, transparent 1px);
+}
+
+/* ── Selection ─────────────────────────────────────────── */
+::selection {
+  background: var(--color-redline);
+  color: var(--color-paper);
+}
+
+/* ── Keyframes ─────────────────────────────────────────── */
+@keyframes dashflow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+/* ── React Flow dark overrides ─────────────────────────── */
+.react-flow__attribution {
+  display: none;
+}
+
+html.dark .react-flow__background pattern circle,
+html.dark .react-flow__background pattern rect {
+  fill: rgba(112, 144, 245, 0.25) !important;
+}
+
+html.dark .react-flow__controls {
+  background: #1a1a1f;
+  border-color: rgba(232, 229, 221, 0.1);
+}
+
+html.dark .react-flow__controls-button {
+  background: #1a1a1f;
+  border-color: rgba(232, 229, 221, 0.1);
+  color: #e8e5dd;
+  fill: #e8e5dd;
+}
+
+html.dark .react-flow__controls-button:hover {
+  background: #222228;
+}
+
+html.dark .react-flow__minimap {
+  background: #1a1a1f !important;
+  border: 1px solid rgba(232, 229, 221, 0.08);
+}
+
+html.dark .react-flow__minimap-mask {
+  fill: rgba(17, 17, 20, 0.7);
+}
+
+html.dark .react-flow__node-architecture {
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.4));
+}
+
+html.dark .react-flow__edge path {
+  filter: brightness(1.1);
+}
+
+/* scrollbar */
+html.dark ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #111114;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #2a2a32;
+  border-radius: 3px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3a3a44;
+}
+
+/* ── Minimap node colors in dark mode ──────────────────── */
+html.dark .react-flow__minimap-node {
+  fill: #2a2a35;
+  stroke: #3a3a48;
+}
+
+/* ── Panel and tooltip dark backgrounds ────────────────── */
+html.dark .react-flow__panel {
+  background: transparent;
+}
+
+/* ── Workspace gap separator ───────────────────────────── */
+html.dark .bg-ink\/10 {
+  background-color: rgba(232, 229, 221, 0.06);
+}
+
+/* ── Better focus rings in dark mode ───────────────────── */
+html.dark textarea:focus,
+html.dark input:focus {
+  outline: none;
+  border-color: var(--color-blueprint) !important;
+}
+
+/* ── Card shadows adapt to dark ────────────────────────── */
+html.dark .shadow-\[3px_3px_0_0_rgba\(21\,20\,15\,0\.06\)\] {
+  box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.3);
+}
+html.dark .shadow-\[4px_4px_0_0_rgba\(21\,20\,15\,0\.06\)\] {
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.35);
+}
+html.dark .shadow-\[2px_2px_0_0_rgba\(21\,20\,15\,0\.1\)\] {
+  box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 0.35);
+}
+
+/* ── Node hover in dark mode ────────────────────────────── */
+html.dark
+  .react-flow__node:hover
+  .shadow-\[2px_2px_0_0_rgba\(21\,20\,15\,0\.1\)\] {
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.5);
+}
