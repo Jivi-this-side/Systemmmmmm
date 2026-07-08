@@ -3,8 +3,7 @@ import { buildPrompt } from "./prompt.js";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "llama-3.3-70b-versatile";
 
-// Vite only exposes vars prefixed with VITE_ to the browser.
-// VITE_GROQ_API_KEY is correct. GROQ_API_KEY alone won't work in the browser.
+
 const API_KEY =
   import.meta.env.VITE_GROQ_API_KEY || import.meta.env.GROQ_API_KEY;
 
@@ -47,7 +46,6 @@ export async function getReview(blueprint) {
   }
 }
 
-// ─── mock ─────────────────────────────────────────────────────────────────────
 // Used when no API key is set. Gives realistic output so the UI is always usable.
 
 function buildMockReview(blueprint) {
