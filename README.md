@@ -145,11 +145,4 @@ The model evaluates: what components you used, how they're connected, whether cr
 
 ---
 
-
-## License
-
-MIT — use it, fork it, build on it.
-
----
-
 *Built to teach engineers not just what components to use, but why they exist and how they work together.*
